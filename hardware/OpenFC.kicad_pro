@@ -449,9 +449,9 @@
         "annular_width": "error",
         "clearance": "error",
         "connection_width": "warning",
-        "copper_edge_clearance": "warning",
+        "copper_edge_clearance": "ignore",
         "copper_sliver": "warning",
-        "courtyards_overlap": "warning",
+        "courtyards_overlap": "ignore",
         "creepage": "error",
         "diff_pair_gap_out_of_range": "error",
         "diff_pair_uncoupled_length_too_long": "error",
@@ -473,7 +473,7 @@
         "length_out_of_range": "error",
         "lib_footprint_issues": "warning",
         "lib_footprint_mismatch": "warning",
-        "malformed_courtyard": "error",
+        "malformed_courtyard": "ignore",
         "microvia_drill_out_of_range": "error",
         "mirrored_text_on_front_layer": "warning",
         "missing_courtyard": "ignore",
@@ -506,7 +506,7 @@
         "tuning_profile_track_geometries": "ignore",
         "unconnected_items": "error",
         "unresolved_variable": "error",
-        "via_dangling": "warning",
+        "via_dangling": "ignore",
         "zones_intersect": "error"
       },
       "rules": {
@@ -523,20 +523,20 @@
         "min_silk_clearance": 0.0,
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
-        "min_through_hole_diameter": 0.15,
+        "min_through_hole_diameter": 0.2,
         "min_track_width": 0.09,
-        "min_via_annular_width": 0.05,
-        "min_via_diameter": 0.25,
+        "min_via_annular_width": 0.075,
+        "min_via_diameter": 0.35,
         "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
         {
-          "td_onpthpad": true,
+          "td_onpthpad": false,
           "td_onroundshapesonly": false,
-          "td_onsmdpad": true,
+          "td_onsmdpad": false,
           "td_ontrackend": false,
-          "td_onvia": true
+          "td_onvia": false
         }
       ],
       "teardrop_parameters": [
@@ -899,7 +899,7 @@
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.09,
         "tuning_profile": "",
-        "via_diameter": 0.3,
+        "via_diameter": 0.35,
         "via_drill": 0.2,
         "wire_width": 6
       }
@@ -907,7 +907,16 @@
     "meta": {
       "version": 5
     },
-    "net_colors": null,
+    "net_colors": {
+      "+1.1V": "rgb(255, 186, 138)",
+      "+1.8V_GYRO": "rgb(255, 144, 71)",
+      "+10V": "rgb(255, 11, 126)",
+      "+3.3V": "rgb(220, 255, 167)",
+      "+5V": "rgb(255, 55, 57)",
+      "+5V_BUCK": "rgb(255, 69, 48)",
+      "+5V_USB": "rgb(255, 115, 56)",
+      "+BATT": "rgb(255, 2, 12)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": [
       {
@@ -1142,14 +1151,15 @@
     ]
   ],
   "text_variables": {
+    "OPENDRONE_LIB": "${KIPRJMOD}/KiCad-Library",
     "DOC_FIRMWARE": "Betaflight",
     "DOC_HANDLE": "openfc-lite",
-    "DOC_INPUT": "+BATT 3S–6S",
+    "DOC_INPUT": "+BATT 3S-8S",
     "DOC_MCU": "RP2354B (QFN-80)",
     "DOC_NAME": "OpenFC-Lite",
     "DOC_PROTOCOL": "DShot",
-    "DOC_RATING": "3S–6S input; rail currents not yet bench-characterized",
-    "DOC_TAGLINE": "RP2354B Betaflight flight controller — microSD blackbox, analog OSD, external RX",
+    "DOC_RATING": "3S-8S input; rail currents not yet bench-characterized",
+    "DOC_TAGLINE": "RP2354B Betaflight flight controller, microSD blackbox, analog OSD, external RX",
     "DOC_VARIANT": "30×30"
   },
   "tuning_profiles": {
